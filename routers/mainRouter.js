@@ -5,11 +5,10 @@ const {
     login,
     register,
     getUsers,
-    updateUserProfile,
-    getUserProfile,
     getUserProfileByUsername,
     sendMessage,
     getUserMessages,
+    updateProfile,
 } = require("../controllers/mainController");
 
 const {
@@ -18,13 +17,12 @@ const {
     sendMessageValidate,
 } = require("../middleware/validators");
 
-Router.post("/login", loginValidate, login);
-Router.post("/register", registerValidate, register);
+Router.post("/login", login);
+Router.post("/register", registerValidate ,register);
 Router.get("/users", getUsers);
-Router.put("/profile", updateUserProfile);
-Router.get("/profile", getUserProfile);
 Router.get("/users/:username", getUserProfileByUsername);
 Router.post("/messages", sendMessageValidate, sendMessage);
 Router.get("/messages/:username", getUserMessages);
+Router.put('/profile', updateProfile)
 
 module.exports = Router;

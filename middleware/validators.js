@@ -27,10 +27,6 @@ module.exports = {
             return res.status(400).json({ message: 'Passwords do not match.' });
         }
 
-        if (findUserByUsername(username)) {
-            return res.status(400).json({ message: 'Username already taken.' });
-        }
-
         next();
     },
 
